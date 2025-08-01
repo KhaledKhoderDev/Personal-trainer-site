@@ -1,0 +1,67 @@
+.site-footer {
+  background-color: #f3f3f3;
+  padding: 40px 20px;
+  text-align: center;
+
+  .footer-logo {
+    margin-bottom: 20px;
+
+    .line-top,
+    .line-bottom {
+      font-family: "Poppins", sans-serif;
+    }
+    .line-top {
+      margin-bottom: -0.5rem;
+    }
+    .word {
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .ahmed {
+      color: #222;
+    }
+
+    .three-d {
+      color: #0eb7e9;
+    }
+
+    .bolic {
+      color: #bcbcbc;
+      font-size: 1.6rem;
+      margin-right: 5px;
+      display: block;
+    }
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    a {
+      background: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #838383;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .footer-copy {
+    font-size: 14px;
+    color: #838383;
+  }
+}

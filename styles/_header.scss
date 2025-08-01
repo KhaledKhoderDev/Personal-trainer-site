@@ -1,0 +1,268 @@
+.site-header {
+  background-color: #ffffff;
+  font-family: "cairo", "poppins", sans-serif;
+  padding: 20px 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.1;
+    font-family: "Poppins", sans-serif;
+
+    .line-top {
+      // display: flex;
+      gap: 5px;
+    }
+
+    .line-bottom {
+      margin-top: 2px;
+    }
+
+    .word {
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .ahmed {
+      color: #222;
+    }
+
+    .three-d {
+      color: #0eb7e9;
+    }
+
+    .bolic {
+      color: #bcbcbc;
+      font-size: 1.6rem;
+      margin-right: 5px;
+      display: block;
+    }
+  }
+
+  .main-nav {
+    ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .close-menu {
+        display: none;
+      }
+      li a {
+        text-decoration: none;
+        color: #222;
+        font-weight: 500;
+
+        &:hover {
+          color: #46abdd;
+        }
+      }
+    }
+    .language-switcher-mobile {
+      display: none;
+    }
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .language-switcher {
+      display: flex;
+      gap: 10px;
+
+      button {
+        background-color: transparent;
+        border: 1px solid #ccc;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #444;
+        padding: 5px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #f2f2f2;
+          color: #53b3e5;
+          border-color: #53b3e5;
+        }
+      }
+    }
+
+    .burger-menu {
+      display: none;
+      font-size: 22px;
+      color: #222;
+      cursor: pointer;
+
+      i:hover {
+        color: #46abdd;
+      }
+    }
+  }
+  // Tablet
+  @media (max-width: 1024px) {
+    .main-nav {
+      display: flex;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      max-width: 400px;
+      height: 100vh;
+      padding: 30px 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+
+      transform: translatex(200%);
+      transition: transform 0.3s ease-in-out;
+
+      &.active {
+        transform: translateX(0);
+        padding: 30px 0;
+      }
+
+      ul {
+        margin-top: 20px;
+        flex-direction: column;
+        gap: 2px;
+        width: 100%;
+        padding: 0;
+        .close-menu {
+          display: block;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          background: none;
+          border: none;
+          font-size: 2.2rem;
+          color: #707070;
+          cursor: pointer;
+          padding: 10px;
+
+          transition: transform 0.2s ease, color 0.2s ease;
+          &:hover {
+            color: #53b3e5;
+          }
+        }
+        li {
+          width: 100%;
+
+          a {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            color: #222;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            &:hover {
+              color: #53b3e5;
+              background-color: #f6f6f6;
+            }
+          }
+        }
+      }
+    }
+
+    .header-actions {
+      .language-switcher {
+        gap: 8px;
+
+        button {
+          font-size: 0.95rem;
+          padding: 6px 14px;
+          border-radius: 6px;
+        }
+      }
+      .burger-menu {
+        display: block;
+      }
+    }
+  }
+  // Normal phones
+  @media (max-width: 600px) {
+    .logo a .word {
+      font-size: 1.5rem;
+    }
+
+    .logo a .bolic {
+      font-size: 1.3rem;
+    }
+
+    .header-actions {
+      justify-content: space-between;
+    }
+
+    .language-switcher button {
+      padding: 4px 10px;
+      font-size: 0.9rem;
+    }
+  }
+  // Extra small phones
+  @media (max-width: 400px) {
+    .logo a .word {
+      font-size: 1.1rem;
+    }
+
+    .logo a .bolic {
+      font-size: 0.9rem;
+    }
+    .main-nav {
+      width: 70%;
+      padding: 20px;
+      .language-switcher-mobile {
+        position: absolute;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        bottom: 20px;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: #fff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        button {
+          background-color: transparent;
+          border: 1px solid #ccc;
+          font-family: "cairo", sans-serif;
+          font-weight: bold;
+          color: #333;
+          padding: 6px 12px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.9rem;
+
+          &:hover {
+            background-color: #f2f2f2;
+            color: #53b3e5;
+            border-color: #53b3e5;
+          }
+          &.active {
+            background-color: #53b3e5;
+            color: #fff;
+            border-color: #53b3e5; /* لإبراز اللغة المختارة */
+          }
+        }
+      }
+    }
+    .header-actions {
+      gap: 6px;
+      .language-switcher {
+        display: none;
+      }
+    }
+  }
+}

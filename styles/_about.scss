@@ -1,0 +1,195 @@
+.about {
+  padding: 60px 20px;
+  background-color: #fff;
+
+  font-family: "Cairo", "Poppins", sans-serif;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .about-text {
+      flex: 1;
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+
+        margin-bottom: 20px;
+      }
+      .trainer-quote {
+        font-style: italic;
+        font-size: 1rem;
+        color: #555;
+        background-color: #f9f9f9;
+        padding: 15px 20px;
+        border-right: 4px solid #53b3e5;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+
+        li {
+          font-size: 1rem;
+          color: #444;
+          margin-bottom: 12px;
+          position: relative;
+          padding-right: 25px;
+          transition: transform 0.3s ease, color 0.3s ease;
+          &:hover {
+            transform: translateX(-10px);
+            color: #53b3e5;
+          }
+          &::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 1rem;
+            color: #53b3e5;
+            position: absolute;
+            right: 0;
+            top: 5px;
+          }
+        }
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: warp;
+        align-items: center;
+        a {
+          font-size: 1.4rem;
+
+          &.whatsapp {
+            color: #25d366;
+          }
+
+          &.email {
+            color: #dd4b39;
+          }
+
+          &.instagram {
+            color: #e1306c;
+          }
+
+          &.facebook {
+            color: #3b5998;
+          }
+
+          &.tiktok {
+            color: #000;
+          }
+        }
+      }
+    }
+    .about-image {
+      flex: 1;
+
+      img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: row;
+      gap: 10px;
+      .about-text {
+        h2 {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        ul {
+          li {
+            font-size: 0.95rem;
+          }
+        }
+      }
+      .about-image {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  @media (max-width: 775px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .about-text {
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        ul li {
+          font-size: 0.95rem;
+          padding-right: 20px;
+        }
+
+        .social-links {
+          justify-content: center;
+
+          a {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .about-text {
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+        padding-right: 18px;
+      }
+
+      .social-links a {
+        font-size: 1.1rem;
+      }
+    }
+
+    .about-image {
+      margin: 0 auto;
+      img {
+        border-radius: 12px;
+        max-width: 80%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
