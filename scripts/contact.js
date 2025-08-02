@@ -1,8 +1,138 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Detect language from HTML lang attribute or default to English
+  const isArabic =
+    document.documentElement.lang === "ar" ||
+    document.body.classList.contains("arabic");
+
   const form = document.getElementById("interactive-form");
   const contactType = document.getElementById("contact-type");
   const generalQuestions = document.getElementById("general-questions");
   const trainingQuestions = document.getElementById("training-questions");
+
+  // Language-specific text
+  const texts = {
+    ar: {
+      openingWhatsApp: "جاري فتح واتساب...",
+      errorSending: "حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+      errorCreating: "حدث خطأ في إنشاء الرسالة",
+      enterName: "يرجى إدخال الاسم",
+      enterMessage: "يرجى إدخال الرسالة",
+      validAge: "يرجى إدخال عمر صحيح",
+      validWeight: "يرجى إدخال وزن صحيح",
+      validHeight: "يرجى إدخال طول صحيح",
+      enterRoutine: "يرجى إدخال الروتين اليومي",
+      selectMaritalStatus: "يرجى اختيار الحالة الاجتماعية",
+      selectDietType: "يرجى اختيار نوع النظام الغذائي",
+      selectAnswer: "يرجى اختيار إجابة",
+      enterInjuryDetails: "يرجى إدخال تفاصيل الإصابات",
+      enterSurgeryDetails: "يرجى إدخال تفاصيل العمليات",
+      enterFractureDetails: "يرجى إدخال تفاصيل الكسور",
+      selectContactType: "يرجى اختيار نوع التواصل",
+      notSpecified: "غير محدد",
+      generalInquiry:
+        "🔵 استفسار عام\n\n👤 الاسم: {name}\n\n💬 الرسالة: {message}\n\n---\nمرسل من موقع كابتن أحمد بدر",
+      trainingRequest: `🏋️ طلب برنامج تدريبي
+
+👨‍⚕️ الأسئلة العامة:
+👤 الاسم: {name}
+🎂 العمر: {age} سنة
+⚖️ الوزن: {weight} كجم
+📏 الطول: {height} سم
+🏠 الروتين اليومي: {routine}
+💍 الحالة الاجتماعية: {maritalStatus}
+
+🍽️ الأسئلة الغذائية:
+🥗 نوع النظام الغذائي: {dietType}
+🍞 مصادر الكربوهيدرات: {carbSources}
+🥩 مصادر البروتين: {proteinSources}
+🍎 الفاكهة المفضلة: {favoriteFruits}
+🥕 الخضروات المفضلة: {favoriteVegetables}
+🍽️ الأكلات المفضلة: {favoriteMeals}
+🚫 الأكلات غير المفضلة: {dislikedFoods}
+🥤 المشروبات المفضلة: {favoriteDrinks}
+💧 كمية الماء اليومية: {waterIntake}
+
+ الأسئلة الصحية:
+🤕 هل تعاني من إصابات؟: {injuries}
+📝 تفاصيل الإصابات: {injuriesDetails}
+ هل أجريت عمليات جراحية؟: {surgeries}
+📝 تفاصيل العمليات: {surgeriesDetails}
+🦴 هل تعرضت لكسور؟: {fractures}
+📝 تفاصيل الكسور: {fracturesDetails}
+❤️ هل تعاني من أمراض القلب؟: {heartCondition}
+💔 هل تشعر بألم في الصدر أثناء النشاط؟: {chestPainActivity}
+💔 هل شعرت بألم في الصدر خلال الشهر الماضي؟: {chestPainMonth}
+
+🏃‍♂️ الأسئلة الرياضية:
+🏋️‍♂️ هل مارست الرياضة من قبل؟: {exercisedBefore}
+⚽ الرياضة المفضلة: {favoriteSport}
+
+---
+مرسل من موقع كابتن أحمد بدر`,
+    },
+    en: {
+      openingWhatsApp: "Opening WhatsApp...",
+      errorSending:
+        "An error occurred while sending the message. Please try again.",
+      errorCreating: "An error occurred while creating the message",
+      enterName: "Please enter your name",
+      enterMessage: "Please enter your message",
+      validAge: "Please enter a valid age",
+      validWeight: "Please enter a valid weight",
+      validHeight: "Please enter a valid height",
+      enterRoutine: "Please enter your daily routine",
+      selectMaritalStatus: "Please select your marital status",
+      selectDietType: "Please select your diet type",
+      selectAnswer: "Please select an answer",
+      enterInjuryDetails: "Please enter injury details",
+      enterSurgeryDetails: "Please enter surgery details",
+      enterFractureDetails: "Please enter fracture details",
+      selectContactType: "Please select contact type",
+      notSpecified: "Not specified",
+      generalInquiry:
+        "🔵 General Inquiry\n\n👤 Name: {name}\n\n💬 Message: {message}\n\n---\nSent from Captain Ahmed Badr's website",
+      trainingRequest: `🏋️ Training Program Request
+
+👨‍⚕️ General Information:
+👤 Name: {name}
+🎂 Age: {age} years
+⚖️ Weight: {weight} kg
+📏 Height: {height} cm
+🏠 Daily Routine: {routine}
+💍 Marital Status: {maritalStatus}
+
+🍽️ Dietary Information:
+🥗 Diet Type: {dietType}
+🍞 Carbohydrate Sources: {carbSources}
+🥩 Protein Sources: {proteinSources}
+🍎 Favorite Fruits: {favoriteFruits}
+🥕 Favorite Vegetables: {favoriteVegetables}
+🍽️ Favorite Meals: {favoriteMeals}
+🚫 Disliked Foods: {dislikedFoods}
+🥤 Favorite Drinks: {favoriteDrinks}
+💧 Daily Water Intake: {waterIntake}
+
+ Health Information:
+🤕 Do you have any injuries?: {injuries}
+📝 Injury Details: {injuriesDetails}
+ Have you had any surgeries?: {surgeries}
+📝 Surgery Details: {surgeriesDetails}
+🦴 Have you had any fractures?: {fractures}
+📝 Fracture Details: {fracturesDetails}
+❤️ Do you have heart conditions?: {heartCondition}
+💔 Do you feel chest pain during activity?: {chestPainActivity}
+💔 Have you felt chest pain in the past month?: {chestPainMonth}
+
+🏃‍♂️ Exercise Information:
+🏋️‍♂️ Have you exercised before?: {exercisedBefore}
+⚽ Favorite Sport: {favoriteSport}
+
+---
+Sent from Captain Ahmed Badr's website`,
+    },
+  };
+
+  const t = texts[isArabic ? "ar" : "en"];
 
   function toggleSectionVisibility(showSection, hideSection) {
     showSection.style.display = "block";
@@ -16,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach((el) => (el.disabled = true));
   }
 
-  // تغيير عرض النماذج حسب نوع التواصل
+  // Toggle form display based on contact type
   contactType.addEventListener("change", function () {
     document.querySelectorAll(".error-message").forEach((msg) => {
       msg.style.display = "none";
@@ -39,39 +169,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // دالة موثوقة لإرسال رسالة واتساب
+  // Reliable function to send WhatsApp message
   function sendWhatsAppMessage(message, phoneNumber = "96879479521") {
     try {
-      // تنظيف الرقم من أي رموز غير رقمية
+      // Clean phone number from any non-numeric characters
       const cleanPhone = phoneNumber.replace(/[^\d]/g, "");
 
-      // تشفير الرسالة للـ URL
+      // Encode message for URL
       const encodedMessage = encodeURIComponent(message);
 
       console.log("Sending message:", message.substring(0, 100) + "...");
       console.log("Phone:", cleanPhone);
 
-      // إنشاء رابط واتساب
+      // Create WhatsApp link
       const whatsappURL = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodedMessage}`;
 
       console.log("WhatsApp URL:", whatsappURL);
 
-      // فتح رابط واتساب في نافذة جديدة
+      // Open WhatsApp link in new window
       const newWindow = window.open(whatsappURL, "_blank");
 
-      // في حالة فشل فتح النافذة الجديدة، استخدم location.href
+      // If opening new window fails, use location.href
       if (!newWindow) {
         window.location.href = whatsappURL;
       }
 
-      // إظهار رسالة نجاح
-      showSuccessMessage("جاري فتح واتساب...");
+      // Show success message
+      showSuccessMessage(t.openingWhatsApp);
 
       return true;
     } catch (error) {
-      console.error("خطأ في إرسال الرسالة:", error);
+      console.error("Error sending message:", error);
 
-      // محاولة بديلة باستخدام wa.me
+      // Fallback attempt using wa.me
       try {
         const fallbackURL = `https://wa.me/${phoneNumber.replace(
           /[^\d]/g,
@@ -83,17 +213,17 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = fallbackURL;
         }
 
-        showSuccessMessage("جاري فتح واتساب...");
+        showSuccessMessage(t.openingWhatsApp);
         return true;
       } catch (fallbackError) {
-        console.error("فشل في المحاولة البديلة:", fallbackError);
-        showErrorMessage("حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.");
+        console.error("Fallback attempt failed:", fallbackError);
+        showErrorMessage(t.errorSending);
         return false;
       }
     }
   }
 
-  // دالة لإظهار رسالة النجاح
+  // Function to show success message
   function showSuccessMessage(text) {
     const existingMsg = document.getElementById("success-message");
     if (existingMsg) {
@@ -115,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  // دالة لإظهار رسالة خطأ
+  // Function to show error message
   function showErrorMessage(text) {
     const existingMsg = document.getElementById("error-message");
     if (existingMsg) {
@@ -150,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
   }
 
-  // التحقق عند إرسال النموذج
+  // Validation on form submission
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     console.log("Form submitted");
@@ -158,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isValid = true;
     let message = "";
 
-    // إخفاء رسائل الخطأ
+    // Hide error messages
     document.querySelectorAll(".error-message").forEach((msg) => {
       msg.style.display = "none";
     });
@@ -168,26 +298,21 @@ document.addEventListener("DOMContentLoaded", function () {
       const msg = document.getElementById("message")?.value?.trim() || "";
 
       if (!name) {
-        showError("name", "يرجى إدخال الاسم");
+        showError("name", t.enterName);
         isValid = false;
       }
       if (!msg) {
-        showError("message", "يرجى إدخال الرسالة");
+        showError("message", t.enterMessage);
         isValid = false;
       }
 
       if (isValid) {
-        message = `🔵 استفسار عام
-
-👤 الاسم: ${name}
-
-💬 الرسالة: ${msg}
-
----
-مرسل من موقع كابتن أحمد بدر`;
+        message = t.generalInquiry
+          .replace("{name}", name)
+          .replace("{message}", msg);
       }
     } else if (contactType.value === "training") {
-      const getVal = (id, def = "غير محدد") => {
+      const getVal = (id, def = t.notSpecified) => {
         const element = document.getElementById(id);
         return element ? element.value?.trim() || def : def;
       };
@@ -200,37 +325,37 @@ document.addEventListener("DOMContentLoaded", function () {
       const qMaritalStatus = getVal("q_marital_status", "");
       const qDietType = getVal("q_diet_type", "");
 
-      // التحقق من البيانات الأساسية
+      // Validate basic information
       if (!qName) {
-        showError("q_name", "يرجى إدخال الاسم");
+        showError("q_name", t.enterName);
         isValid = false;
       }
       if (!(qAge >= 9 && qAge <= 130)) {
-        showError("q_age", "يرجى إدخال عمر صحيح");
+        showError("q_age", t.validAge);
         isValid = false;
       }
       if (!(qWeight >= 30 && qWeight <= 200)) {
-        showError("q_weight", "يرجى إدخال وزن صحيح");
+        showError("q_weight", t.validWeight);
         isValid = false;
       }
       if (!(qHeight >= 100 && qHeight <= 250)) {
-        showError("q_height", "يرجى إدخال طول صحيح");
+        showError("q_height", t.validHeight);
         isValid = false;
       }
       if (!qRoutine) {
-        showError("q_routine", "يرجى إدخال الروتين اليومي");
+        showError("q_routine", t.enterRoutine);
         isValid = false;
       }
-      if (!qMaritalStatus || qMaritalStatus === "غير محدد") {
-        showError("q_marital_status", "يرجى اختيار الحالة الاجتماعية");
+      if (!qMaritalStatus || qMaritalStatus === t.notSpecified) {
+        showError("q_marital_status", t.selectMaritalStatus);
         isValid = false;
       }
-      if (!qDietType || qDietType === "غير محدد") {
-        showError("q_diet_type", "يرجى اختيار نوع النظام الغذائي");
+      if (!qDietType || qDietType === t.notSpecified) {
+        showError("q_diet_type", t.selectDietType);
         isValid = false;
       }
 
-      // التحقق من الأسئلة الراديو
+      // Validate radio button fields
       const radioFields = [
         "q_injuries",
         "q_surgeries",
@@ -248,98 +373,96 @@ document.addEventListener("DOMContentLoaded", function () {
           `input[name="${fieldName}"]:checked`
         );
         if (!radio) {
-          showErrorRadio(fieldName, "يرجى اختيار إجابة");
+          showErrorRadio(fieldName, t.selectAnswer);
           isValid = false;
         } else {
           radioValues[fieldName] = radio.value;
         }
       });
 
-      // التحقق من التفاصيل الإضافية
+      // Validate additional details
+      const yesValue = isArabic ? "نعم" : "Yes";
       if (
-        radioValues["q_injuries"] === "نعم" &&
+        radioValues["q_injuries"] === yesValue &&
         !getVal("q_injuries_details", "")
       ) {
-        showError("q_injuries_details", "يرجى إدخال تفاصيل الإصابات");
+        showError("q_injuries_details", t.enterInjuryDetails);
         isValid = false;
       }
       if (
-        radioValues["q_surgeries"] === "نعم" &&
+        radioValues["q_surgeries"] === yesValue &&
         !getVal("q_surgeries_details", "")
       ) {
-        showError("q_surgeries_details", "يرجى إدخال تفاصيل العمليات");
+        showError("q_surgeries_details", t.enterSurgeryDetails);
         isValid = false;
       }
       if (
-        radioValues["q_fractures"] === "نعم" &&
+        radioValues["q_fractures"] === yesValue &&
         !getVal("q_fractures_details", "")
       ) {
-        showError("q_fractures_details", "يرجى إدخال تفاصيل الكسور");
+        showError("q_fractures_details", t.enterFractureDetails);
         isValid = false;
       }
 
       if (isValid) {
-        message = `🏋️ طلب برنامج تدريبي
-
-👨‍⚕️ الأسئلة العامة:
-👤 الاسم: ${qName}
-🎂 العمر: ${qAge} سنة
-⚖️ الوزن: ${qWeight} كجم
-📏 الطول: ${qHeight} سم
-🏠 الروتين اليومي: ${qRoutine}
-💍 الحالة الاجتماعية: ${qMaritalStatus}
-
-🍽️ الأسئلة الغذائية:
-🥗 نوع النظام الغذائي: ${qDietType}
-🍞 مصادر الكربوهيدرات: ${getVal("q_carb_sources")}
-🥩 مصادر البروتين: ${getVal("q_protein_sources")}
-🍎 الفاكهة المفضلة: ${getVal("q_favorite_fruits")}
-🥕 الخضروات المفضلة: ${getVal("q_favorite_vegetables")}
-🍽️ الأكلات المفضلة: ${getVal("q_favorite_meals")}
-🚫 الأكلات غير المفضلة: ${getVal("q_disliked_foods")}
-🥤 المشروبات المفضلة: ${getVal("q_favorite_drinks")}
-💧 كمية الماء اليومية: ${getVal("q_water_intake")}
-
-🏥 الأسئلة الصحية:
-🤕 هل تعاني من إصابات؟: ${radioValues["q_injuries"] || "غير محدد"}
-📝 تفاصيل الإصابات: ${getVal("q_injuries_details")}
-🏥 هل أجريت عمليات جراحية؟: ${radioValues["q_surgeries"] || "غير محدد"}
-📝 تفاصيل العمليات: ${getVal("q_surgeries_details")}
-🦴 هل تعرضت لكسور؟: ${radioValues["q_fractures"] || "غير محدد"}
-📝 تفاصيل الكسور: ${getVal("q_fractures_details")}
-❤️ هل تعاني من أمراض القلب؟: ${radioValues["q_heart_condition"] || "غير محدد"}
-💔 هل تشعر بألم في الصدر أثناء النشاط؟: ${
-          radioValues["q_chest_pain_activity"] || "غير محدد"
-        }
-💔 هل شعرت بألم في الصدر خلال الشهر الماضي؟: ${
-          radioValues["q_chest_pain_month"] || "غير محدد"
-        }
-
-🏃‍♂️ الأسئلة الرياضية:
-🏋️‍♂️ هل مارست الرياضة من قبل؟: ${radioValues["q_exercised_before"] || "غير محدد"}
-⚽ الرياضة المفضلة: ${getVal("q_favorite_sport")}
-
----
-مرسل من موقع كابتن أحمد بدر`;
+        message = t.trainingRequest
+          .replace("{name}", qName)
+          .replace("{age}", qAge)
+          .replace("{weight}", qWeight)
+          .replace("{height}", qHeight)
+          .replace("{routine}", qRoutine)
+          .replace("{maritalStatus}", qMaritalStatus)
+          .replace("{dietType}", qDietType)
+          .replace("{carbSources}", getVal("q_carb_sources"))
+          .replace("{proteinSources}", getVal("q_protein_sources"))
+          .replace("{favoriteFruits}", getVal("q_favorite_fruits"))
+          .replace("{favoriteVegetables}", getVal("q_favorite_vegetables"))
+          .replace("{favoriteMeals}", getVal("q_favorite_meals"))
+          .replace("{dislikedFoods}", getVal("q_disliked_foods"))
+          .replace("{favoriteDrinks}", getVal("q_favorite_drinks"))
+          .replace("{waterIntake}", getVal("q_water_intake"))
+          .replace("{injuries}", radioValues["q_injuries"] || t.notSpecified)
+          .replace("{injuriesDetails}", getVal("q_injuries_details"))
+          .replace("{surgeries}", radioValues["q_surgeries"] || t.notSpecified)
+          .replace("{surgeriesDetails}", getVal("q_surgeries_details"))
+          .replace("{fractures}", radioValues["q_fractures"] || t.notSpecified)
+          .replace("{fracturesDetails}", getVal("q_fractures_details"))
+          .replace(
+            "{heartCondition}",
+            radioValues["q_heart_condition"] || t.notSpecified
+          )
+          .replace(
+            "{chestPainActivity}",
+            radioValues["q_chest_pain_activity"] || t.notSpecified
+          )
+          .replace(
+            "{chestPainMonth}",
+            radioValues["q_chest_pain_month"] || t.notSpecified
+          )
+          .replace(
+            "{exercisedBefore}",
+            radioValues["q_exercised_before"] || t.notSpecified
+          )
+          .replace("{favoriteSport}", getVal("q_favorite_sport"));
       }
     } else {
-      showError("contact-type", "يرجى اختيار نوع التواصل");
+      showError("contact-type", t.selectContactType);
       isValid = false;
     }
 
-    // إرسال الرسالة
+    // Send the message
     if (isValid && message.trim()) {
       console.log("Message ready to send:", message.substring(0, 200) + "...");
       const success = sendWhatsAppMessage(message);
 
       if (success) {
-        // إعادة تعيين النموذج بعد الإرسال الناجح
+        // Reset form after successful submission
         setTimeout(() => {
           form.reset();
           generalQuestions.style.display = "none";
           trainingQuestions.style.display = "none";
 
-          // إغلاق جميع الأكورديونات
+          // Close all accordions
           document.querySelectorAll(".accordion-content").forEach((content) => {
             content.style.display = "none";
           });
@@ -352,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       console.log("Form validation failed or message is empty");
       if (!message.trim()) {
-        showErrorMessage("حدث خطأ في إنشاء الرسالة");
+        showErrorMessage(t.errorCreating);
       }
     }
   });
@@ -365,7 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
         errorElement.textContent = errorMessage;
         errorElement.style.display = "block";
 
-        // التمرير إلى الحقل الذي به خطأ
+        // Scroll to the field with error
         field.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
@@ -381,14 +504,14 @@ document.addEventListener("DOMContentLoaded", function () {
           errorElement.textContent = errorMessage;
           errorElement.style.display = "block";
 
-          // التمرير إلى الحقل الذي به خطأ
+          // Scroll to the field with error
           formGroup.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
   }
 
-  // أكورديون
+  // Accordion functionality
   document.querySelectorAll(".accordion-button").forEach((button) => {
     button.addEventListener("click", function () {
       const content = this.nextElementSibling;
