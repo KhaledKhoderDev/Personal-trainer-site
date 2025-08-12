@@ -5,8 +5,6 @@ import "./contact.js";
 const burger = document.querySelector(".burger-menu");
 const closeBtn = document.querySelector(".close-menu");
 const nav = document.querySelector(".main-nav");
-const arabicBtns = document.querySelectorAll(".arabic-btn");
-const englishBtns = document.querySelectorAll(".english-btn");
 
 // BURGER MENU TOGGLE
 burger.addEventListener("click", () => {
@@ -29,26 +27,4 @@ document.addEventListener("click", (e) => {
     nav.classList.remove("active");
     burger.setAttribute("aria-expanded", "false");
   }
-});
-
-// LANGUAGE SWITCHING
-const setLanguage = (lang, dir) => {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = dir;
-  arabicBtns.forEach((btn) => {
-    btn.classList.toggle("active", lang == "ar");
-    btn.setAttribute("aria-current", lang == "ar" ? "true" : "false");
-  });
-  englishBtns.forEach((btn) => {
-    btn.classList.toggle("active", lang == "en");
-    btn.setAttribute("aria-current", lang == "en" ? "true" : "false");
-  });
-};
-
-arabicBtns.forEach((btn) => {
-  btn.addEventListener("click", () => setLanguage("ar", "rtl"));
-});
-
-englishBtns.forEach((btn) => {
-  btn.addEventListener("click", () => setLanguage("en", "ltr"));
 });
