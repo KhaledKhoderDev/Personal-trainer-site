@@ -1,0 +1,6 @@
+# Language routing for Netlify
+/en /index-en.html 200
+/index-en.html /index-en.html 200
+
+# Default fallback to Arabic version
+/* /index.html 200
