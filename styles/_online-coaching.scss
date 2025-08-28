@@ -1,0 +1,483 @@
+// Online Coaching Details Section Styles
+.online-coaching-details {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #e74c3c, #f39c12);
+      border-radius: 2px;
+    }
+  }
+
+  // Coaching Offer Section
+  .coaching-offer {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .discount-badge h3 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .offer-text {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+  }
+
+  // Services Provided Section
+  .services-provided {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
+    h3 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 10px;
+      border-left: 4px solid #e74c3c;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.2);
+      }
+
+      i {
+        font-size: 1.5rem;
+        color: #e74c3c;
+        min-width: 30px;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 600;
+        color: #2c3e50;
+        line-height: 1.4;
+      }
+    }
+
+    .availability {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #27ae60;
+      margin: 0;
+      padding: 15px;
+      background: linear-gradient(135deg, #d5f4e6, #a8e6cf);
+      border-radius: 10px;
+    }
+  }
+
+  // Coaching Process Section
+  .coaching-process {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
+    h3, h4 {
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    h4 {
+      font-size: 1.4rem;
+      margin-top: 30px;
+    }
+
+    .process-steps {
+      margin-bottom: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border-radius: 10px;
+      border-left: 4px solid #f39c12;
+
+      .step-number {
+        background: #f39c12;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        min-width: 40px;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+    }
+
+    .follow-up-steps {
+      display: grid;
+      gap: 20px;
+    }
+
+    .follow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background: linear-gradient(135deg, #e8f5e8, #d4edda);
+      border-radius: 10px;
+      border-left: 4px solid #27ae60;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateX(10px);
+        box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+      }
+
+      i {
+        font-size: 1.5rem;
+        color: #27ae60;
+        min-width: 30px;
+        margin-top: 5px;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Pricing Section
+  .pricing-section {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
+    h3 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .pricing-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+      }
+
+      &.egypt {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        
+        &:hover {
+          box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
+        }
+      }
+
+      &.gulf {
+        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        
+        &:hover {
+          box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4);
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .price-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+
+        .duration {
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+
+        .price {
+          font-weight: 700;
+          font-size: 1.3rem;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+      }
+    }
+  }
+
+  // Coach Signature
+  .coach-signature {
+    text-align: center;
+    margin-bottom: 30px;
+
+    p {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin: 0;
+      font-style: italic;
+    }
+  }
+
+  // CTA Button
+  .coaching-cta {
+    text-align: center;
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+        background: linear-gradient(135deg, #128c7e, #25d366);
+      }
+
+      i {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .online-coaching-details {
+    padding: 60px 0;
+
+    .container {
+      padding: 0 15px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .coaching-offer {
+      padding: 25px 20px;
+
+      .discount-badge h3 {
+        font-size: 1.5rem;
+      }
+
+      .offer-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    .services-provided,
+    .coaching-process,
+    .pricing-section {
+      padding: 30px 20px;
+    }
+
+    .service-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .service-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .step {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .follow-step {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .online-coaching-details {
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .coaching-offer {
+      .discount-badge h3 {
+        font-size: 1.3rem;
+      }
+
+      .offer-text {
+        font-size: 1rem;
+      }
+    }
+
+    .pricing-card {
+      padding: 25px 20px;
+
+      h4 {
+        font-size: 1.3rem;
+      }
+
+      .price-item {
+        .duration {
+          font-size: 1rem;
+        }
+
+        .price {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
