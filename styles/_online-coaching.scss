@@ -1,7 +1,7 @@
 // Online Coaching Details Section Styles
 .online-coaching-details {
   padding: 80px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background-color: #fff;
   position: relative;
 
   .container {
@@ -14,7 +14,7 @@
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #000000;
     margin-bottom: 50px;
     position: relative;
 
@@ -26,19 +26,19 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: linear-gradient(90deg, #e74c3c, #f39c12);
+      background-color: #53b3e5;
       border-radius: 2px;
     }
   }
 
   // Coaching Offer Section
   .coaching-offer {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background-color: #53b3e5;
     border-radius: 15px;
     padding: 30px;
     margin-bottom: 40px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 10px 30px rgba(83, 179, 229, 0.3);
     position: relative;
     overflow: hidden;
 
@@ -79,7 +79,7 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 
     h3 {
-      color: #2c3e50;
+      color: #000000;
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -100,24 +100,24 @@
       padding: 20px;
       background: linear-gradient(135deg, #f8f9fa, #e9ecef);
       border-radius: 10px;
-      border-left: 4px solid #e74c3c;
+      border-left: 4px solid #53b3e5;
       transition: all 0.3s ease;
 
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.2);
+        box-shadow: 0 8px 20px rgba(83, 179, 229, 0.2);
       }
 
       i {
         font-size: 1.5rem;
-        color: #e74c3c;
+        color: #53b3e5;
         min-width: 30px;
       }
 
       p {
         margin: 0;
         font-weight: 600;
-        color: #2c3e50;
+        color: #4d4d4d;
         line-height: 1.4;
       }
     }
@@ -126,10 +126,10 @@
       text-align: center;
       font-size: 1.2rem;
       font-weight: 700;
-      color: #27ae60;
+      color: #53b3e5;
       margin: 0;
       padding: 15px;
-      background: linear-gradient(135deg, #d5f4e6, #a8e6cf);
+      background: linear-gradient(135deg, #e6f4fb, #d1ebf7);
       border-radius: 10px;
     }
   }
@@ -143,7 +143,7 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 
     h3, h4 {
-      color: #2c3e50;
+      color: #000000;
       font-weight: 700;
       margin-bottom: 25px;
     }
@@ -169,10 +169,10 @@
       padding: 25px;
       background: linear-gradient(135deg, #fff3cd, #ffeaa7);
       border-radius: 10px;
-      border-left: 4px solid #f39c12;
+      border-left: 4px solid #53b3e5;
 
       .step-number {
-        background: #f39c12;
+        background: #53b3e5;
         color: white;
         width: 40px;
         height: 40px;
@@ -188,7 +188,7 @@
       p {
         margin: 0;
         line-height: 1.6;
-        color: #2c3e50;
+        color: #4d4d4d;
         font-weight: 500;
       }
     }
@@ -205,17 +205,17 @@
       padding: 25px;
       background: linear-gradient(135deg, #e8f5e8, #d4edda);
       border-radius: 10px;
-      border-left: 4px solid #27ae60;
+      border-left: 4px solid #53b3e5;
       transition: all 0.3s ease;
 
       &:hover {
         transform: translateX(10px);
-        box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+        box-shadow: 0 5px 15px rgba(83, 179, 229, 0.2);
       }
 
       i {
         font-size: 1.5rem;
-        color: #27ae60;
+        color: #53b3e5;
         min-width: 30px;
         margin-top: 5px;
       }
@@ -223,7 +223,7 @@
       p {
         margin: 0;
         line-height: 1.6;
-        color: #2c3e50;
+        color: #4d4d4d;
         font-weight: 500;
       }
     }
@@ -238,7 +238,7 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 
     h3 {
-      color: #2c3e50;
+      color: #000000;
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 30px;
@@ -252,7 +252,7 @@
     }
 
     .pricing-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #53b3e5 0%, #3a9cd1 100%);
       border-radius: 15px;
       padding: 30px;
       text-align: center;
@@ -263,22 +263,22 @@
 
       &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 15px 35px rgba(83, 179, 229, 0.4);
       }
 
       &.egypt {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        background: linear-gradient(135deg, #53b3e5 0%, #3a9cd1 100%);
         
         &:hover {
-          box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
+          box-shadow: 0 15px 35px rgba(83, 179, 229, 0.4);
         }
       }
 
       &.gulf {
-        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        background: linear-gradient(135deg, #53b3e5 0%, #3a9cd1 100%);
         
         &:hover {
-          box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4);
+          box-shadow: 0 15px 35px rgba(83, 179, 229, 0.4);
         }
       }
 
@@ -331,7 +331,7 @@
 
     p {
       font-size: 1.2rem;
-      color: #2c3e50;
+      color: #4d4d4d;
       margin: 0;
       font-style: italic;
     }
@@ -346,19 +346,19 @@
       align-items: center;
       gap: 10px;
       padding: 15px 30px;
-      background: linear-gradient(135deg, #25d366, #128c7e);
+      background-color: #53b3e5;
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: 700;
       font-size: 1.1rem;
       transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 8px 25px rgba(83, 179, 229, 0.3);
 
       &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-        background: linear-gradient(135deg, #128c7e, #25d366);
+        box-shadow: 0 12px 35px rgba(83, 179, 229, 0.4);
+        background-color: #3a9cd1;
       }
 
       i {
