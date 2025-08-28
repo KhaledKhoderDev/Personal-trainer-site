@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ahmed3dbolic.netlify.app/sitemap.xml
+
+# Allow crawling of CSS and JS files
+Allow: /styles/
+Allow: /scripts/
+Allow: /images/
+Allow: /*.css$
+Allow: /*.js$
